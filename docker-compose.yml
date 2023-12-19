@@ -12,7 +12,7 @@ services:
       - vprodbdata:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=vprodbpass
-      - MYSQL_DATABASE=vprodb
+      
   vprocache01:
     image: memcached
     ports:
