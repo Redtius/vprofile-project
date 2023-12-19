@@ -3,8 +3,7 @@ services:
   vprodb:
     build:
       context: ./Docker-files/db
-      dockerfile: Dockerfile
-    image: vprocontainers/vprofiledb
+    image: sunsetblvd20/vprofiledb
     container_name: vprodb
     ports:
       - "3306:3306"
@@ -17,21 +16,19 @@ services:
     image: memcached
     ports:
       - "11211:11211"
-  
+
   vpromq01:
     image: rabbitmq
     ports:
-      - "5672:5672"
       - "15672:15672"
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
-  
+
   vproapp:
     build:
       context: ./Docker-files/app
-      dockerfile: Dockerfile
-    image: vprocontainers/vprofileapp
+    image: sunsetblvd20/vprofileapp
     container_name: vproapp
     ports:
       - "8080:8080"
@@ -41,8 +38,7 @@ services:
   vproweb:
     build:
       context: ./Docker-files/web
-      dockerfile: Dockerfile
-    image: vprocontainers/vprofileweb
+    image: sunsetblvd20/vprofileweb
     container_name: vproweb
     ports:
       - "80:80"
@@ -50,4 +46,3 @@ services:
 volumes:
   vprodbdata: {}
   vproappdata: {}
-      
